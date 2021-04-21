@@ -35,7 +35,7 @@
 		};
 
 		wan {
-			label = "gl-mt300n-v2:green:wan";
+			label = "gl-mt300n-v2:blue:wan";
 			gpios = <&gpio1 11 GPIO_ACTIVE_LOW>;
 		};
 
@@ -77,13 +77,20 @@
 			gpio-export,output = <1>;
 			gpios = <&gpio0 11 GPIO_ACTIVE_HIGH>;
 		};
+
+                bluetooth_rst {
+                        gpio-export,name = "bluetooth_rst";
+                        gpio-export,output = <1>;
+                        gpios = <&gpio0 5 GPIO_ACTIVE_HIGH>;
+                };
+
 	};
 };
 
 &pinctrl {
 	state_default: pinctrl0 {
 		gpio {
-			ralink,group = "wdt", "gpio", "wled_an", "p0led_an", "p1led_an", "i2s";
+			ralink,group = "wdt", "gpio", "wled_an", "p0led_an", "p1led_an", "i2s", "i2c";
 			ralink,function = "gpio";
 		};
 	};
